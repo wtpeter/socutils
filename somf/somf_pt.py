@@ -134,6 +134,8 @@ def get_psoc_x2camf(mol, gaunt=True, gauge=True, atm_pt=True, xresp=False, form=
 
     if not xresp:
         hfw1 = x2cobj.get_hfw1(h4c1, x_response=False) 
+        hfw1 += x2camf.amfi(x2c.X2C(mol), printLevel=mol.verbose,
+                            with_gaunt=gaunt, with_gauge=gauge, pt=True, int4c=False)
     elif (atm_pt):
         hfw1 = x2c_grad.x2c1e_hfw1(xmol, h4c1, w=wsf)
         hfw1 += x2camf.amfi(x2c.X2C(mol), printLevel=mol.verbose,
